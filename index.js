@@ -1,7 +1,13 @@
-const n = parseInt(prompt('Enter the "n" value of Fibonacci numer'));
+const n = parseInt(prompt('Enter the "n" value of Fibonacci number'));
 
-const result = findFiboCycle;     //findFibo;
-document.write(result);
+// const result = findFibo(n);
+// document.write(result);
+
+// const resultArray = findFiboArray(n);
+// document.write(resultArray);
+
+const resultCycle = findFiboCycle(n);
+document.write(resultCycle);
 
 // function findFibo(n) {
 //     if (n <= 1){
@@ -13,14 +19,14 @@ document.write(result);
 
 
 function findFiboCycle(n) {
-let fibTwoPrev = 0;
+let fibTwoPrev = 1;
 let fibOnePrev = 1;
-let fibNext = 1;
+let fibNext = fibOnePrev + fibTwoPrev;
 let i;
-    for ( i = 2; i <= n; i++ ) {
-    fibNext = fibOnePrev + fibTwoPrev;
-    fibOnePrev = fibNext;
-    fibNext = fibTwoPrev;
-    return fibNext;
-  }
+    for ( i = 3; i <= n; i++ ) {
+        fibNext = fibOnePrev + fibTwoPrev;
+        fibTwoPrev = fibOnePrev;
+        fibOnePrev = fibNext;
+    } 
+    return 'Cycle Fibonacci = ' + fibOnePrev + '<br>';
 }
