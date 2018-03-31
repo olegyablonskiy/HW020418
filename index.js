@@ -3,23 +3,26 @@ const n = parseInt(prompt('Enter the "n" value of Fibonacci number'));
 const result = findFibo(n);
 document.write(result);
 
-// const resultArray = findFiboArray(n);
-// document.write(resultArray);
-
 const resultCycle = findFiboCycle(n);
-document.write(resultCycle);
+document.write('<br>' + resultCycle);
+
+const resultArray = findFiboArray(n);
+document.write('<br>' + resultArray);
 
 function findFibo(n) {
     if (n <= 1){
         return 1;
     }
-    return ( findFibo(n-1) + findFibo(n-2) );
+    return findFibo(n-1) + findFibo(n-2);
 }
 
 
 
 function findFiboCycle(n) {
-let fibTwoPrev = 0;
+    if (n < 2) {
+        return 1;
+    }
+let fibTwoPrev = 1;
 let fibOnePrev = 1;
 let fibNext = fibOnePrev + fibTwoPrev;
 let i;
@@ -28,5 +31,17 @@ let i;
         fibTwoPrev = fibOnePrev;
         fibOnePrev = fibNext;
     } 
-    return '<br>' + fibNext;
+    return fibNext;
+}
+
+
+function findFiboArray(n) {
+    const fibos = [1, 1];
+    if (n < 2) {
+        return fibos[n];
+    }
+    for ( let i = 2; i <= n; i++) {
+        fibos.push( fibos[i - 1] + fibos[i - 2] );
+    }
+    return fibos [n];
 }
