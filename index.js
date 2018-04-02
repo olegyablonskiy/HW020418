@@ -1,13 +1,13 @@
 const n = parseInt(prompt('Enter the "n" value of Fibonacci number'));
 
 const result = findFibo(n);
-document.write(result);
+document.write("Fibonacci through recursion = " + result);
 
 const resultCycle = findFiboCycle(n);
-document.write('<br>' + resultCycle);
+document.write('<br>' + "Fibonacci through cycle = " + resultCycle);
 
 const resultArray = findFiboArray(n);
-document.write('<br>' + resultArray);
+document.write('<br>' + "Fibonacci through array = " + resultArray);
 
 function findFibo(n) {
     if (n <= 1){
