@@ -9,14 +9,13 @@ document.write('<br>' + "Fibonacci through cycle = " + resultCycle);
 const resultArray = findFiboArray(n);
 document.write('<br>' + "Fibonacci through array = " + resultArray);
 
+
 function findFibo(n) {
     if (n <= 1){
         return 1;
     }
     return findFibo(n-1) + findFibo(n-2);
 }
-
-
 
 function findFiboCycle(n) {
     if (n < 2) {
@@ -33,7 +32,6 @@ let i;
     } 
     return fibNext;
 }
-
 
 function findFiboArray(n) {
     const fibos = [1, 1];
